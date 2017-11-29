@@ -1,0 +1,10 @@
+# System
+*.swp
+.DS_Store
+
+# Project
+node_modules
+npm-debug.log
+.yarn-cache
+yarn-error.log
+
