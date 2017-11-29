@@ -1,12 +1,14 @@
 {
   "name": "web_tools",
   "scripts": {
+    "start": "babel-node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "express": "^4.16.2"
   },
   "devDependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1"
   }
