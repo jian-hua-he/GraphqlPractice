@@ -1,11 +1,12 @@
 {
   "name": "web_tools",
   "scripts": {
-    "start": "babel-node app.js",
+    "start": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "graphql": "^0.11.7"
   },
   "devDependencies": {
     "babel": "^6.23.0",
