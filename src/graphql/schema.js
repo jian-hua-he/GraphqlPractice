@@ -1,20 +1,15 @@
 import {
-    graphql,
     GraphQLSchema,
-    GraphQLObjectType,
-    GraphQLString
+    GraphQLObjectType
 } from 'graphql';
+
+import hello from './hello';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
         name: 'RootQueryType',
         fields: {
-            hello: {
-                type: GraphQLString,
-                resolve: function() {
-                    return 'world';
-                },
-            },
+            hello: hello,
         },
     }),
 });
