@@ -4,7 +4,7 @@ import {
     GraphQLObjectType
 } from 'graphql';
 
-let userType = new GraphQLObjectType({
+const userType = new GraphQLObjectType({
     name: 'User',
     description: 'User graphql Type',
     fields: {

@@ -8,10 +8,10 @@ import {
 import userType from '../user/type';
 import userList from '../../db/fake/user.json';
 
-let todoType = new GraphQLObjectType({
+const todoType = new GraphQLObjectType({
     name: 'Todo',
     description: 'Todo graphql type',
-    fields: {
+    fields: () => ({
         id: {
             description: 'Todo’s unique id',
             type: GraphQLID,
@@ -37,7 +37,7 @@ let todoType = new GraphQLObjectType({
                 });
             },
         },
-    },
+    }),
 });
 
 export default todoType;

@@ -6,7 +6,7 @@ import {
 import userType from './type';
 import userList from '../../db/fake/user.json';
 
-export let user = {
+export const user = {
     name: 'UserQuery',
     description: 'Query a single user',
     type: userType,

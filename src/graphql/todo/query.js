@@ -6,7 +6,7 @@ import {
 import todoType from './type';
 import todoList from '../../db/fake/todo.json';
 
-export let todos = {
+export const todos = {
     name: 'TodosQuery',
     description: 'Query todo list',
     type: new GraphQLList(todoType),
