@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "userId": 1,
+        "title": "Clean House",
+        "description": "This house is too dirty. Should clean it up",
+        "checked": true
+    },
+    {
+        "id": 2,
+        "userId": 1,
+        "title": "Buy some food",
+        "description": "We don’t have any food in our storage. Go to market and buy some",
+        "checked": false
+    },
+    {
+        "id": 3,
+        "userId": 2,
+        "title": "Upgrade OS to newest version",
+        "description": "Our OS is too old. Should upgrade to prevent malicious attacks",
+        "checked": false
+    },
+    {
+        "id": 4,
+        "userId": 3,
+        "title": "Prepare Christmas present",
+        "description": "It’s important. Don’t forget!!!",
+        "checked": true
+    },
+    {
+        "id": 5,
+        "userId": 3,
+        "title": "Go to the GP concert with my friend",
+        "description": "I wish I can have day off at that day",
+        "checked": true
+    }
+]
