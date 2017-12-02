@@ -5,6 +5,7 @@ import {
 
 import hello from './hello';
 import { todos } from './todo/query';
+import { user } from './user/query';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -12,6 +13,7 @@ let schema = new GraphQLSchema({
         fields: {
             hello: hello,
             todos: todos,
+            user: user,
         },
     }),
 });
