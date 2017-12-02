@@ -4,9 +4,9 @@ import {
 } from 'graphql';
 
 import userType from './type';
-import fakeData from './data.json';
+import userList from '../../db/fake/user.json';
 
-export let user = {
+export const user = {
     name: 'UserQuery',
     description: 'Query a single user',
     type: userType,
@@ -17,7 +17,7 @@ export let user = {
         },
     },
     resolve: function (context, args) {
-        let result = fakeData.find((user) => {
+        let result = userList.find((user) => {
             return user.id == args.id;
         });
 
