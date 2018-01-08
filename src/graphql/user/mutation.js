@@ -3,6 +3,7 @@ import {
     GraphQLString
 } from 'graphql';
 
+import Email from '../../scalar/email';
 import userType from './type';
 
 export const createUser = {
@@ -15,7 +16,7 @@ export const createUser = {
             description: 'The user’s name',
         },
         email: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(Email),
             description: 'The user’s email',
         },
     },
