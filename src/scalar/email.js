@@ -18,7 +18,11 @@ const Email = new GraphQLScalarType({
         return null;
     },
     parseLiteral: function (ast) {
-        return ast.value;
+        if (isValid(ast.value)) {
+            return value;
+        }
+
+        return null;
     },
 });
 
