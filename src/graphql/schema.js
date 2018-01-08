@@ -6,6 +6,7 @@ import {
 import hello from './hello';
 import { todos } from './todo/query';
 import { user } from './user/query';
+import { createUser } from './user/mutation';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -14,6 +15,12 @@ let schema = new GraphQLSchema({
             hello: hello,
             todos: todos,
             user: user,
+        },
+    }),
+    mutation: new GraphQLObjectType({
+        name: 'RootMutationType',
+        fields: {
+            createUser: createUser,
         },
     }),
 });

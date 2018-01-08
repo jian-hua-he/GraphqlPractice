@@ -1,6 +1,6 @@
 import {
     GraphQLNonNull,
-    GraphQLString
+    GraphQLID,
 } from 'graphql';
 
 import userType from './type';
@@ -12,7 +12,7 @@ export const user = {
     type: userType,
     args: {
         id: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(GraphQLID),
             description: 'The user id',
         },
     },
