@@ -2,9 +2,10 @@ import {
     GraphQLID,
     GraphQLList
 } from 'graphql';
+import { Types } from 'mongoose';
 
 import todoType from './type';
-import todoList from '../../db/fake/todo.json';
+import todoEntity from '../../db/entities/todo'
 
 export const todos = {
     name: 'TodosQuery',
@@ -16,15 +17,10 @@ export const todos = {
             description: 'The user id',
         },
     },
-    resolve: function(context, args) {
-        let result = todoList;
+    resolve: async function(context, args) {
+        let userId = new Types.ObjectId(args.userId);
+        let results = await todoEntity.find({ userId });
 
-        if (args.userId) {
-            result = todoList.filter((todo) => {
-                return todo.userId == args.userId;
-            });
-        }
-
-        return result;
+        return results;
     },
 };
