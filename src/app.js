@@ -2,7 +2,7 @@ import express from 'express';
 import graphqlHttp from 'express-graphql';
 import mongoose from 'mongoose';
 
-import schema from './graphql/schema';
+import schema from 'graphql/schema';
 
 export default {
     init: () => {

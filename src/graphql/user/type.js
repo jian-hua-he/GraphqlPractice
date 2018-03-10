@@ -5,13 +5,13 @@ import {
     GraphQLObjectType
 } from 'graphql';
 
-import todoEntity from '../../db/entities/todo';
+import todoEntity from 'db/entities/todo';
 
 const userType = new GraphQLObjectType({
     name: 'User',
     description: 'User graphql Type',
     fields: () => {
-        const todoType = require('../todo/type').default;
+        const todoType = require('graphql/todo/type').default;
 
         return {
             id: {

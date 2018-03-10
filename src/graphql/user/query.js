@@ -5,7 +5,7 @@ import {
 import { Types } from 'mongoose';
 
 import userType from './type';
-import userEntity from '../../db/entities/user';
+import userEntity from 'db/entities/user';
 
 export const user = {
     name: 'UserQuery',
