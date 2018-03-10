@@ -2,9 +2,10 @@ import {
     GraphQLNonNull,
     GraphQLID,
 } from 'graphql';
+import { Types } from 'mongoose';
 
 import userType from './type';
-import userList from '../../db/fake/user.json';
+import userEntity from '../../db/entities/user';
 
 export const user = {
     name: 'UserQuery',
@@ -16,10 +17,9 @@ export const user = {
             description: 'The user id',
         },
     },
-    resolve: function (context, args) {
-        let result = userList.find((user) => {
-            return user.id == args.id;
-        });
+    resolve: async function (context, args) {
+        let userId = new Types.ObjectId(args.id);
+        let result = await userEntity.findById(userId);
 
         return result;
     },
