@@ -1,45 +1,53 @@
 import mongoose from 'mongoose';
 
 import User from '../entities/user';
-// import Todo from '../entities/todo';
+import Todo from '../entities/todo';
 
 mongoose.connect('mongodb://mongo_server:27017/graphql');
 
 exec();
 
 function exec() {
-    dropAll();
+    dropAll().then(() => {
+        console.log('Drop data success');
 
-    let userData = [
-        {
-            name: "Edna R. Grimaldi",
-            email: "edna.r.grimaldi@example.com",
-        },
-        {
-            name: "Nicholas Murphy",
-            email: "nicholas.murphy@example.com",
-        },
-        {
-            name: "Camille J. Riddle",
-            email: "camille.riddle@example.com",
-        }
-    ];
-
-    userData.forEach((data) => {
-        let user = new User(data);
-        user.save();
+        seedUser().then((users) => {
+            console.log('Seed user success');
+            process.exit();
+        });
     });
-
-    process.exit();
 }
 
 function dropAll() {
-    // Drop all collections
-    User.remove({}, (err) => {
-        console.error('Drop user collection failed');
+    let dropPromises = [];
+
+    dropPromises.push(User.remove({}));
+    dropPromises.push(Todo.remove({}));
+
+    return Promise.all(dropPromises);
+}
+
+function seedUser() {
+    let userData = [
+        {
+            name: 'Edna R. Grimaldi',
+            email: 'edna.r.grimaldi@example.com',
+        },
+        {
+            name: 'Nicholas Murphy',
+            email: 'nicholas.murphy@example.com',
+        },
+        {
+            name: 'Camille J. Riddle',
+            email: 'camille.riddle@example.com',
+        },
+    ];
+    let userPromises = [];
+
+    userData.forEach((data) => {
+        let user = new User(data);
+        userPromises.push(user.save());
     });
 
-    // Todo.remove({}, (err) => {
-    //     console.log('Drop todo collection failed');
-    // });
+    return Promise.all(userPromises);
 }
