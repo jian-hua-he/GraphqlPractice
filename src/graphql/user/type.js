@@ -5,7 +5,7 @@ import {
     GraphQLObjectType
 } from 'graphql';
 
-import todoList from '../../db/fake/todo.json';
+import todoEntity from '../../db/entities/todo';
 
 const userType = new GraphQLObjectType({
     name: 'User',
@@ -29,10 +29,8 @@ const userType = new GraphQLObjectType({
             todos: {
                 description: 'User’s todo list',
                 type: new GraphQLList(todoType),
-                resolve: function(user, args, info) {
-                    return todoList.filter((todo) => {
-                        return todo.userId == user.id;
-                    });
+                resolve: async function(user, args, info) {
+                    return await todoEntity.find({ userId: user.id });
                 },
             },
         };

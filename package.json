@@ -2,12 +2,14 @@
   "name": "web_tools",
   "scripts": {
     "start": "babel-node index.js",
+    "seed": "babel-node src/db/seeds/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
-    "graphql": "^0.11.7"
+    "graphql": "^0.11.7",
+    "mongoose": "^5.0.9"
   },
   "devDependencies": {
     "babel": "^6.23.0",

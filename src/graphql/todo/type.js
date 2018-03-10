@@ -5,14 +5,12 @@ import {
     GraphQLObjectType
 } from 'graphql';
 
-import userList from '../../db/fake/user.json';
+import userEntity from '../../db/entities/user';
 
 const todoType = new GraphQLObjectType({
     name: 'Todo',
     description: 'Todo graphql type',
     fields: () => {
-        let userType = require('../user/type').default;
-
         return {
             id: {
                 description: 'Todo’s unique id',
@@ -32,11 +30,9 @@ const todoType = new GraphQLObjectType({
             },
             user: {
                 description: 'Owner data',
-                type: userType,
-                resolve: function(todo, args, info) {
-                    return userList.find((user) => {
-                        return user.id == todo.userId;
-                    });
+                type: require('../user/type').default,
+                resolve: async function(todo, args, info) {
+                    return userEntity.findById(todo.userId);
                 },
             },
         };
