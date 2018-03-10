@@ -5,7 +5,7 @@ import {
 import { Types } from 'mongoose';
 
 import todoType from './type';
-import todoEntity from '../../db/entities/todo'
+import todoEntity from '../../db/entities/todo';
 
 export const todos = {
     name: 'TodosQuery',
