@@ -7,27 +7,23 @@ mongoose.connect('mongodb://mongo_server:27017/graphql');
 
 exec();
 
-function exec() {
-    dropAll().then(() => {
-        console.log('Drop data success');
+async function exec() {
+    await dropAll();
 
-        seedUser().then((users) => {
-            console.log('Seed user success');
-            process.exit();
-        });
-    });
+    let users = await seedUser();
+
+    console.log('Seed user success');
+    process.exit();
 }
 
-function dropAll() {
-    let dropPromises = [];
+async function dropAll() {
+    await User.remove({});
+    await Todo.remove({});
 
-    dropPromises.push(User.remove({}));
-    dropPromises.push(Todo.remove({}));
-
-    return Promise.all(dropPromises);
+    console.log('Drop data success');
 }
 
-function seedUser() {
+async function seedUser() {
     let userData = [
         {
             name: 'Edna R. Grimaldi',
@@ -42,12 +38,9 @@ function seedUser() {
             email: 'camille.riddle@example.com',
         },
     ];
-    let userPromises = [];
 
-    userData.forEach((data) => {
+    for (let data of userData) {
         let user = new User(data);
-        userPromises.push(user.save());
-    });
-
-    return Promise.all(userPromises);
+        await user.save();
+    }
 }
