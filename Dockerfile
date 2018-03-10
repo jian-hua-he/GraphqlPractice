@@ -1,5 +1,5 @@
-# Build form ubuntu 16.10
-FROM ubuntu:16.10
+# Build form ubuntu 17.10
+FROM ubuntu:17.10
 
 # Use bin/bash instead bin/sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -16,7 +16,7 @@ RUN apt-get install -y \
     git
 
 # Fetch Node and install it
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get -y install nodejs
 
 # Install yarn
