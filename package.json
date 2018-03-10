@@ -2,6 +2,7 @@
   "name": "web_tools",
   "scripts": {
     "start": "babel-node index.js",
+    "seed": "babel-node src/db/seeds/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
