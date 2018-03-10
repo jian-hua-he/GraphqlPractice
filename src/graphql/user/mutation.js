@@ -3,7 +3,7 @@ import {
     GraphQLString
 } from 'graphql';
 
-import Email from '../../scalar/email';
+import Email from 'scalar/email';
 import userType from './type';
 
 export const createUser = {

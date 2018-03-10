@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-import User from '../entities/user';
-import Todo from '../entities/todo';
+import User from 'db/entities/user';
+import Todo from 'db/entities/todo';
 
 exec();
 

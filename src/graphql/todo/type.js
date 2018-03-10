@@ -5,7 +5,7 @@ import {
     GraphQLObjectType
 } from 'graphql';
 
-import userEntity from '../../db/entities/user';
+import userEntity from 'db/entities/user';
 
 const todoType = new GraphQLObjectType({
     name: 'Todo',
@@ -30,7 +30,7 @@ const todoType = new GraphQLObjectType({
             },
             user: {
                 description: 'Owner data',
-                type: require('../user/type').default,
+                type: require('graphql/user/type').default,
                 resolve: async function(todo, args, info) {
                     return userEntity.findById(todo.userId);
                 },
