@@ -3,10 +3,11 @@ import {
     GraphQLObjectType
 } from 'graphql';
 
-import hello from './hello';
-import { todos } from './todo/query';
-import { user } from './user/query';
-import { createUser } from './user/mutation';
+import hello from 'graphql/hello';
+import { todos } from 'graphql/todo/query';
+import { user } from 'graphql/user/query';
+import { createUser } from 'graphql/user/mutation';
+import { createTodo } from 'graphql/todo/mutation';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -21,6 +22,7 @@ let schema = new GraphQLSchema({
         name: 'RootMutationType',
         fields: {
             createUser: createUser,
+            createTodo: createTodo,
         },
     }),
 });
