@@ -19,4 +19,4 @@ services:
         container_name: graphql_mongo
         image: mongo:3.4.9
         ports:
-            - "27017:27017"
+            - "27018:27017"
