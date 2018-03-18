@@ -40,3 +40,25 @@ export const createTodo = {
         return todo;
     },
 };
+
+export const clickTodo = {
+    name: 'ClickTodo',
+    description: 'Click todo',
+    type: todoType,
+    args: {
+        id: {
+            type: new GraphQLNonNull(GraphQLID),
+            description: 'Todo’s ID',
+        },
+    },
+    resolve: async function (context, args) {
+        let todoId = new Types.ObjectId(args.id);
+        let todo = await Todo.findById(todoId);
+
+        todo.checked = !todo.checked;
+
+        await todo.save();
+
+        return todo;
+    },
+}

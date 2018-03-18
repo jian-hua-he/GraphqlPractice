@@ -7,7 +7,7 @@ import hello from 'graphql/hello';
 import { todos } from 'graphql/todo/query';
 import { user } from 'graphql/user/query';
 import { createUser } from 'graphql/user/mutation';
-import { createTodo } from 'graphql/todo/mutation';
+import { createTodo, clickTodo } from 'graphql/todo/mutation';
 
 let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -23,6 +23,7 @@ let schema = new GraphQLSchema({
         fields: {
             createUser: createUser,
             createTodo: createTodo,
+            clickTodo: clickTodo,
         },
     }),
 });
