@@ -4,7 +4,10 @@ import {
 } from 'graphql';
 
 import Email from 'scalar/email';
+
 import userType from './type';
+
+import User from 'db/entities/user';
 
 export const createUser = {
     name: 'CreateUser',
@@ -20,11 +23,13 @@ export const createUser = {
             description: 'The user’s email',
         },
     },
-    resolve: function (context, args) {
-        let user = { id: 4 };
+    resolve: async function (context, args) {
+        let user = new User({
+            name: args.name,
+            email: args.email,
+        });
 
-        user.name = args.name;
-        user.email = args.email;
+        await user.save();
 
         return user;
     },
