@@ -3,6 +3,7 @@ import {
     GraphQLNonNull,
     GraphQLString
 } from 'graphql';
+import { Types } from 'mongoose';
 
 import todoType from './type';
 
