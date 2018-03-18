@@ -22,8 +22,9 @@ export const createTodo = {
             description: 'The todo’s title',
         },
         description: {
-            type: new GraphQLNonNull(GraphQLString),
+            type: GraphQLString,
             description: 'The todo’s description',
+            defaultValue: '',
         },
     },
     resolve: async function (context, args) {
